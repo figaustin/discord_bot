@@ -6,11 +6,11 @@ import json
 from dotenv import load_dotenv
 import os
 
-def configure():
-    load_dotenv()
+
+load_dotenv()
 
 client = discord.Client()
-load_dotenv()
+
 tenor_api_key = os.getenv('tenor_key')
 open_weather_key = os.getenv('open_weather_key')
 
@@ -22,7 +22,7 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    elif message.content.startswith('hello' or 'Hello'):
+    elif message.content.startswith('hello') or message.content.startswith('Hello'):
         await message.channel.send('Hello, ' + message.author.mention)
     
     elif message.content.startswith('$8ball'):
