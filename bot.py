@@ -63,11 +63,11 @@ async def on_message(message):
 
 # Function to get a gif using Tenor API
 def get_gif(searchTerm): 
-    response = requests.get("https://g.tenor.com/v1/search?q={}&key={}&limit=50".format(searchTerm, tenor_api_key))
+    response = requests.get("https://g.tenor.com/v1/random?q={}&key={}&limit=1".format(searchTerm, tenor_api_key))
     data = response.json()
     
     #Return a random gif within the search range of the specified search term
-    return data['results'][random.randrange(0,50,1)]['media'][0]['gif']['url']
+    return data['results'][0]['media'][0]['gif']['url']
 
 # Retrieve weather data for specified CITY 
 def get_weather(city):
